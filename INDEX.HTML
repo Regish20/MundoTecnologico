@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal líder en noticias, tutoriales y análisis sobre tecnología y programación en el mundo hispanohablante">
+  <meta name="keywords" content="tecnología, programación, noticias tech, desarrollo web, inteligencia artificial, blockchain">
+  <title>Mundo Tecnológico - Portal líder de noticias tech en español</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/ESTILOS.CSS">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="bg-dark text-white py-2 small d-none d-md-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="me-3"><i class="fas fa-calendar-alt me-1"></i> <span id="current-date"></span></span>
+        <span><i class="fas fa-rss me-1"></i> Últimas actualizaciones</span>
+      </div>
+      <div>
+        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="bg-danger text-white py-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-globe-americas me-2 fs-3"></i>
+            <h1 class="m-0 fs-3 fw-bold">Mundo Tecnológico</h1>
+          </div>
+        </div>
+       <div class="col-md-5 mb-3 mb-md-0">
+        <form class="d-flex position-relative" id="search-form">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0">
+              <i class="fas fa-search text-muted"></i>
+            </span>
+            <input class="form-control border-start-0 ps-0" 
+                  type="search" 
+                  placeholder="Buscar noticias, tutoriales, tecnología..." 
+                  aria-label="Buscar" 
+                  id="search-input"
+                  autocomplete="off">
+            <button class="btn btn-outline-light position-absolute end-0 top-0 h-100" 
+                    type="submit" 
+                    style="z-index: 3; border-left: none;">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex justify-content-md-end">
+          <button class="btn btn-outline-light me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal"><i class="fas fa-user-plus me-1"></i> <span class="register-text">Registrarse</span></button>
+          <button class="btn btn-light text-danger btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fas fa-sign-in-alt me-1"></i> <span class="login-text">Iniciar Sesión</span></button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-lg-none" href="#"><i class="fas fa-globe-americas text-danger"></i> MT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active fw-bold" href="index.html">
+            <i class="fas fa-home text-danger"></i> <span class="nav-home">Inicio</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fw-bold" href="SECCIONES.HTML#nuevas-tecnologias">
+            <i class="fas fa-rocket text-danger"></i> <span class="nav-tech">Nuevas Tecnologías</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="SECCIONES.HTML#backend">
+            <i class="fas fa-server text-danger"></i> Backend
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="SECCIONES.HTML#frontend">
+            <i class="fas fa-desktop text-danger"></i> Frontend
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="SECCIONES.HTML#nosotros">
+            <i class="fas fa-users text-danger"></i> <span class="nav-about">Nosotros</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <button class="language-selector" onclick="activateGoogleTranslate();">
+            Seleccionar Idioma <i class="fa fa-globe ms-2"></i>
+          </button>
+          <div id="google_translate_element"></div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="theme-toggle"><i class="fas fa-moon text-danger"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Resto del código HTML del sitio aquí -->
+
+  <!-- Modal de Registro -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="registerModalLabel"><span class="register-title">Crear nueva cuenta</span></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="register-form">
+            <div class="mb-3">
+              <label for="registerName" class="form-label"><span class="register-name">Nombre completo</span></label>
+              <input type="text" class="form-control" id="registerName" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label"><span class="register-email">Correo electrónico</span></label>
+              <input type="email" class="form-control" id="registerEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label"><span class="register-password">Contraseña</span></label>
+              <input type="password" class="form-control" id="registerPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPasswordConfirm" class="form-label"><span class="register-confirm">Confirmar contraseña</span></label>
+              <input type="password" class="form-control" id="registerPasswordConfirm" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="registerTerms" required>
+              <label class="form-check-label" for="registerTerms"><span class="register-terms">Acepto los términos y condiciones</span></label>
+            </div>
+            <div class="alert alert-success d-none" id="register-success"><span class="register-success-msg">¡Registro exitoso! Ya puedes iniciar sesión.</span></div>
+            <div class="alert alert-danger d-none" id="register-error"><span class="register-error-msg">Error en el registro. Por favor intenta nuevamente.</span></div>
+            <button type="submit" class="btn btn-danger w-100"><span class="register-btn">Registrarse</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Inicio de Sesión -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="loginModalLabel"><span class="login-title">Iniciar sesión</span></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label"><span class="login-email">Correo electrónico</span></label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label"><span class="login-password">Contraseña</span></label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="loginRemember">
+              <label class="form-check-label" for="loginRemember"><span class="login-remember">Recordarme</span></label>
+            </div>
+            <div class="alert alert-success d-none" id="login-success"><span class="login-success-msg">¡Inicio de sesión exitoso!</span></div>
+            <div class="alert alert-danger d-none" id="login-error"><span class="login-error-msg">Credenciales incorrectas. Por favor intenta nuevamente.</span></div>
+            <button type="submit" class="btn btn-danger w-100"><span class="login-btn">Iniciar sesión</span></button>
+          </form>
+          <div class="text-center mt-3">
+            <a href="#" class="small text-danger"><span class="login-forgot">¿Olvidaste tu contraseña?</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido Principal -->
+  <div class="container mb-5">
+    <!-- Carousel - Banner principal -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="hero-section position-relative overflow-hidden rounded-3 shadow-lg">
+          <!-- Imagen principal con marco -->
+          <div class="main-image-frame rounded-3 overflow-hidden border border-4 border-white shadow position-relative" style="z-index:2;">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80"
+              class="w-100"
+              alt="Tecnología del futuro"
+              style="height: 500px; object-fit: cover;">
+          </div>
+          <!-- Gradiente encima pero sin tapar la imagen -->
+          <div class="position-absolute top-0 start-0 w-100 h-100 rounded-3" style="background: linear-gradient(135deg, rgba(217,46,64,0.7) 0%, rgba(0,0,0,0.5) 100%); z-index:3;"></div>
+          <!-- Texto y botones -->
+          <div class="position-absolute top-50 start-50 translate-middle text-center text-white w-100 px-4" style="z-index:4;">
+            <h1 class="display-3 fw-bold mb-4 text-shadow">El Futuro de la Tecnología</h1>
+            <p class="lead mb-4 fs-4">Descubre las últimas innovaciones que están transformando nuestro mundo</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="#" class="btn btn-light btn-lg px-4 py-2" id="explorarNoticiasBtn">
+                <i class="fas fa-rocket me-2"></i>Explorar Noticias
+              </a>
+            </div>
+          </div>
+          <!-- Indicadores de trending -->
+          <div class="position-absolute bottom-0 start-0 w-100 p-4" style="z-index:5;">
+            <div class="d-flex align-items-center text-white">
+              <span class="badge bg-danger me-3 px-3 py-2">
+                <i class="fas fa-fire me-1"></i>TRENDING
+              </span>
+              <div class="trending-scroll d-none d-md-block">
+                <span class="me-4">🚀 Nuevos avances en computación cuántica</span>
+                <span class="me-4">🤖 ChatGPT revoluciona la programación</span>
+                <span class="me-4">⚡ Java 21 LTS ya disponible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Agrega este contenedor después del banner principal y antes de las noticias -->
+    <div id="noticia-completa" style="display:none;"></div>
+
+    <!-- Noticias principales -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <div class="card mb-4 shadow-sm border-0 rounded-4">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded-start h-100 object-fit-cover" alt="Noticia de tecnología">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <div class="mb-2">
+                  <span class="badge bg-secondary rounded-pill">Desarrollo</span>
+                  <span class="badge bg-danger rounded-pill">Destacado</span>
+                </div>
+                <!-- Noticia principal -->
+                <h4 class="card-title">
+                  <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(1)">
+                    "El futuro pertenece a los desarrolladores full-stack": La revolución de los frameworks JavaScript
+                  </a>
+                </h4>
+                <p class="card-text">
+                  La evolución de Next.js y otros frameworks modernos está redefiniendo el desarrollo web. Expertos analizan cómo la integración de IA en herramientas de programación y el auge de arquitecturas serverless están transformando la industria y creando nuevas oportunidades laborales.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="small text-muted">
+                    <i class="far fa-clock me-1"></i> Hace 3 horas
+                    <span class="mx-2">|</span>
+                    <i class="far fa-comment me-1"></i> 42 comentarios
+                  </div>
+                  <a href="#" class="btn btn-sm btn-outline-danger" onclick="mostrarNoticiaCompleta(1)">Leer más</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Innovación tecnológica">
+              <div class="card-body">
+                <div class="mb-2">
+                  <span class="badge bg-info rounded-pill">Innovación</span>
+                  <span class="badge bg-secondary rounded-pill">Tecnología</span>
+                </div>
+                <!-- Segunda noticia -->
+                <h5 class="card-title">
+                  <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(2)">
+                    Startups tecnológicas revolucionan la industria con IA y automatización
+                  </a>
+                </h5>
+                <p class="card-text">Nuevas empresas están implementando inteligencia artificial y robótica para transformar sectores como la salud, la educación y la energía.</p>
+                <div class="small text-muted">
+                  <i class="far fa-clock me-1"></i> Hace 12 horas
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Programación Java">
+              <div class="card-body">
+                <div class="mb-2">
+                  <span class="badge bg-success rounded-pill">Programación</span>
+                  <span class="badge bg-secondary rounded-pill">Java</span>
+                </div>
+                <!-- Tercera noticia -->
+                <h5 class="card-title">
+                  <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(3)">
+                    Java comienza un nuevo camino en la programación: 3 datos clave
+                  </a>
+                </h5>
+                <p class="card-text">Las últimas actualizaciones prometen revolucionar el desarrollo de aplicaciones empresariales.</p>
+                <div class="small text-muted">
+                  <i class="far fa-clock me-1"></i> Hace 3 días
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <!-- Lo más leído -->
+        <div class="card mb-4 shadow-sm border-0">
+          <div class="card-header bg-danger text-white py-3">
+            <h5 class="m-0 d-flex align-items-center">
+              <i class="fas fa-fire me-2"></i> Lo más leído
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="list-group list-group-flush">
+              <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-0" onclick="mostrarNoticiaCompleta(4)">
+                <div class="d-flex">
+                  <div class="fw-bold text-danger me-2">01</div>
+                  <div>
+                    <h6 class="mb-0">El futuro de los microprocesadores: más pequeños y más potentes</h6>
+                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 5 horas</small>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-0" onclick="mostrarNoticiaCompleta(6)">
+                <div class="d-flex">
+                  <div class="fw-bold text-danger me-2">02</div>
+                  <div>
+                    <h6 class="mb-0">Cómo configurar tu entorno de desarrollo para Python en 2025</h6>
+                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 1 día</small>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-0" onclick="mostrarNoticiaCompleta(3)">
+                <div class="d-flex">
+                  <div class="fw-bold text-danger me-2">03</div>
+                  <div>
+                    <h6 class="mb-0">Java lanza nuevas herramientas para desarrolladores</h6>
+                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 2 días</small>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-0" onclick="mostrarNoticiaCompleta(8)">
+                <div class="d-flex">
+                  <div class="fw-bold text-danger me-2">05</div>
+                  <div>
+                    <h6 class="mb-0">Conferencia Tech 2025: Las tendencias del momento</h6>
+                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 3 días</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div> 
+
+        <!-- Dato Curioso -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-body text-center bg-light">
+            <p class="small text-muted mb-2">DATO CURIOSO</p>
+            <p class="mb-0">
+              ¿Sabías que el primer mensaje enviado por Internet fue "LO"? Se intentó escribir "LOGIN", pero la red se cayó después de las dos primeras letras.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categorías - Pestañas -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <ul class="nav nav-tabs mb-3" id="categoryTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active fw-bold" id="tech-tab" data-bs-toggle="tab" data-bs-target="#tech" type="button" role="tab" aria-controls="tech" aria-selected="true">
+              <i class="fas fa-microchip text-danger me-1"></i> Tecnología
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="prog-tab" data-bs-toggle="tab" data-bs-target="#prog" type="button" role="tab" aria-controls="prog" aria-selected="false">
+              <i class="fas fa-code text-danger me-1"></i> Programación
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="ai-tab" data-bs-toggle="tab" data-bs-target="#ai" type="button" role="tab" aria-controls="ai" aria-selected="false">
+              <i class="fas fa-robot text-danger me-1"></i> IA
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="events-tab" data-bs-toggle="tab" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false">
+              <i class="fas fa-calendar-day text-danger me-1"></i> Eventos
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="categoryTabsContent">
+          <!-- Pestaña Tecnología -->
+          <div class="tab-pane fade show active" id="tech" role="tabpanel" aria-labelledby="tech-tab">
+            <div class="row g-4">
+              <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm border-0">
+                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Procesadores cuánticos">
+                  <div class="card-body">
+                    <span class="badge bg-primary mb-2">Hardware</span>
+                    <h5 class="card-title">
+                      <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(4)">
+                        Los procesadores cuánticos estarán disponibles para el consumidor en 2026
+                      </a>
+                    </h5>
+                    <p class="card-text small">Avances en la miniaturización y enfriamiento permitirán su uso doméstico.</p>
+                  </div>
+                  <div class="card-footer bg-white border-0 small text-muted">
+                    <i class="far fa-clock me-1"></i> Hace 1 semana
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm border-0">
+                  <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Ciberseguridad">
+                  <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">Ciberseguridad</span>
+                    <h5 class="card-title">
+                      <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(5)">
+                        Nuevos métodos de autenticación biométrica que reemplazarán las contraseñas
+                      </a>
+                    </h5>
+                    <p class="card-text small">La combinación de reconocimiento facial y de voz está revolucionando la seguridad.</p>
+                  </div>
+                  <div class="card-footer bg-white border-0 small text-muted">
+                    <i class="far fa-clock me-1"></i> Hace 3 días
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm border-0">
+                  <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Realidad Virtual">
+                  <div class="card-body">
+                    <span class="badge bg-info text-dark mb-2">Trabajo en casa</span>
+                      <h5 class="card-title">
+                        <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(7)">
+                          La IA multimodal: el futuro de la inteligencia artificial
+                        </a>
+                      </h5>
+                      <p class="card-text small">Herramientas digitales y nuevas tendencias están permitiendo a millones de personas trabajar eficientemente desde sus hogares.</p>
+                  </div>
+                  <div class="card-footer bg-white border-0 small text-muted">
+                    <i class="far fa-clock me-1"></i> Hace 1 semana
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Otras pestañas - contenido oculto por defecto -->
+          <div class="tab-pane fade" id="prog" role="tabpanel" aria-labelledby="prog-tab">
+            <div class="row g-4">
+              <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm border-0">
+                  <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Java">
+                  <div class="card-body">
+                    <span class="badge bg-danger mb-2">Java</span>
+                    <h5 class="card-title">
+                      <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(3)">
+                        La evolución de Java: del JDK 8 al JDK 28
+                      </a>
+                    </h5>
+                    <p class="card-text small">Cómo ha evolucionado uno de los lenguajes más populares en los últimos años.</p>
+                  </div>
+                  <div class="card-footer bg-white border-0 small text-muted">
+                    <i class="far fa-clock me-1"></i> Hace 2 días
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm border-0">
+                  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Entorno Python moderno">
+                  <div class="card-body">
+                    <span class="badge bg-success mb-2">Programación</span>
+                    <h5 class="card-title">
+                      <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(6)">
+                        Cómo configurar tu entorno de desarrollo para Python en 2025
+                      </a>
+                    </h5>
+                    <p class="card-text small">
+                      Descubre cómo instalar Python, usar entornos virtuales, configurar Visual Studio Code y automatizar pruebas para trabajar como un profesional.
+                    </p>
+                  </div>
+                  <div class="card-footer bg-white border-0 small text-muted">
+                    <i class="far fa-clock me-1"></i> Hace 5 días
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-pane fade" id="ai" role="tabpanel" aria-labelledby="ai-tab">
+            <div class="row g-4">
+              <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm border-0">
+                  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="IA Generativa">
+                  <div class="card-body">
+                    <span class="badge bg-primary mb-2">IA Generativa</span>
+                    <h5 class="card-title">
+                      <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(7)">
+                        La IA multimodal: el futuro de la inteligencia artificial
+                      </a>
+                    </h5>
+                    <p class="card-text small">Sistemas que combinan texto, imágenes y audio para entender el mundo como los humanos.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Más elementos aquí para la pestaña de IA -->
+            </div>
+          </div>
+          
+          <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+            <div class="list-group">
+              <div class="list-group-item border-0 py-3">
+                <div class="row align-items-center">
+                  <div class="col-md-2 text-center text-md-start">
+                    <div class="bg-danger text-white rounded p-2 d-inline-block">
+                      <div class="small">JUN</div>
+                      <div class="fw-bold fs-4">15</div>
+                    </div>
+                  </div>
+                  <div class="col-md-7 my-3 my-md-0">
+                    <h5 class="mb-1">Conferencia de Desarrollo Web 2025</h5>
+                    <p class="mb-0 text-muted small">
+                      <i class="fas fa-map-marker-alt me-1"></i> Lima, Perú
+                      <span class="mx-2">|</span>
+                      <i class="fas fa-users me-1"></i> 500+ asistentes
+                    </p>
+                  </div>
+                  <div class="col-md-3 text-md-end">
+                    <a href="#" class="btn btn-sm btn-outline-danger" onclick="mostrarNoticiaCompleta(8)">Más información</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner de estadísticas -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="bg-dark text-white rounded p-4 shadow">
+          <div class="row text-center">
+            <div class="col-md-3 col-6 mb-3 mb-md-0">
+              <div class="display-5 fw-bold">125K+</div>
+              <p class="mb-0">Lectores diarios</p>
+            </div>
+            <div class="col-md-3 col-6 mb-3 mb-md-0">
+              <div class="display-5 fw-bold">15K+</div>
+              <p class="mb-0">Artículos publicados</p>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="display-5 fw-bold">50+</div>
+              <p class="mb-0">Países</p>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="display-5 fw-bold">12+</div>
+              <p class="mb-0">Años de experiencia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Scripts -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script type="text/javascript">
+    // ==========================================
+    // CONFIGURACIÓN DE GOOGLE TRANSLATE
+    // ==========================================
+    
+    (function() {
+      var gtConstEvalStartTime = new Date().getTime();
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+  
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,es,fr,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+      
+      // Ocultar el div después de inicializar
+      hideGoogleTranslateDiv();
+    }
+    
+    // Función para ocultar el div de Google Translate
+    function hideGoogleTranslateDiv() {
+      const translateDiv = document.getElementById('google_translate_element');
+      if (translateDiv) {
+        translateDiv.style.visibility = 'hidden';
+        translateDiv.style.position = 'absolute';
+        translateDiv.style.top = '-9999px';
+        translateDiv.style.left = '-9999px';
+        translateDiv.style.height = '1px';
+        translateDiv.style.width = '1px';
+        translateDiv.style.overflow = 'hidden';
+      }
+    }
+    
+    // Función para activar el selector de idioma directamente
+    function activateGoogleTranslate() {
+      // Buscar el selector de idioma de Google y activarlo
+      setTimeout(function() {
+        // Simular clic en el elemento .goog-te-gadget-simple o .goog-te-menu-value
+        try {
+          const translateElement = document.querySelector('.goog-te-gadget-simple, .goog-te-menu-value');
+          if (translateElement) {
+            translateElement.click();
+          } else {
+            console.log('Elemento del traductor no encontrado');
+          }
+        } catch (e) {
+          console.error('Error al activar el traductor:', e);
+        }
+      }, 500); // Pequeño retraso para asegurar que Google Translate se ha cargado
+    }
+    
+    // Función para eliminar el banner de Google Translate
+    function removeBanner() {
+      // Eliminar los iframes de Google Translate que muestran el banner
+      const iframes = document.getElementsByTagName('iframe');
+      for (let i = 0; i < iframes.length; i++) {
+        if (iframes[i].name.includes('goog_')) {
+          if (iframes[i].style.visibility !== 'hidden') {
+            iframes[i].style.visibility = 'hidden';
+          }
+        }
+      }
+      
+      // Eliminar la clase que Google añade al body
+      document.body.classList.remove('translated-ltr');
+      
+      // Restaurar la posición original del body
+      if (document.body.style.top !== '0px') {
+        document.body.style.top = '0px';
+      }
+    }
+
+    // Agregar CSS para ocultar definitivamente el widget original
+    const style = document.createElement('style');
+    style.textContent = `
+      #google_translate_element {
+        visibility: hidden !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        height: 1px !important;
+        width: 1px !important;
+        overflow: hidden !important;
+      }
+      
+      .goog-te-menu-frame {
+        box-shadow: none !important;
+      }
+      
+      body > .skiptranslate, .goog-te-menu-frame {
+        visibility: visible !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // ==========================================
+    // DATOS DE ARTÍCULOS
+    // ==========================================
+    
+    const articlesData = [
+      {
+        id: 1,
+        title: "El futuro pertenece a los desarrolladores full-stack: La revolución de los frameworks JavaScript",
+        category: "Desarrollo",
+        content: "La evolución de Next.js y otros frameworks modernos está redefiniendo el desarrollo web",
+        author: "Juan Pérez",
+        date: "2025-05-26",
+        tags: ["javascript", "framework", "desarrollo", "fullstack"]
+      },
+      {
+        id: 2,
+        title: "Startups tecnológicas revolucionan la industria con IA y automatización",
+        category: "Innovación",
+        content: "Nuevas empresas están implementando inteligencia artificial y robótica",
+        author: "María García",
+        date: "2025-05-25",
+        tags: ["ia", "startups", "automatización", "innovación"]
+      },
+      {
+        id: 3,
+        title: "Java comienza un nuevo camino en la programación: 3 datos clave",
+        category: "Programación",
+        content: "Las últimas actualizaciones prometen revolucionar el desarrollo de aplicaciones empresariales",
+        author: "Carlos López",
+        date: "2025-05-24",
+        tags: ["java", "programación", "desarrollo", "empresarial"]
+      },
+      {
+        id: 4,
+        title: "Los procesadores cuánticos estarán disponibles para el consumidor en 2026",
+        category: "Hardware",
+        content: "Avances en la miniaturización y enfriamiento permitirán su uso doméstico",
+        author: "Ana Rodríguez",
+        date: "2025-05-23",
+        tags: ["cuántico", "procesadores", "hardware", "consumidor"]
+      },
+      {
+        id: 5,
+        title: "Nuevos métodos de autenticación biométrica que reemplazarán las contraseñas",
+        category: "Ciberseguridad",
+        content: "La combinación de reconocimiento facial y de voz está revolucionando la seguridad",
+        author: "Pedro Martínez",
+        date: "2025-05-22",
+        tags: ["biométrica", "seguridad", "autenticación", "contraseñas"]
+      },
+      {
+        id: 6,
+        title: "Cómo configurar tu entorno de desarrollo para Python en 2025",
+        category: "Programación",
+        content: "Guía completa para configurar Python con las mejores herramientas del mercado",
+        author: "Sofía Hernández",
+        date: "2025-05-21",
+        tags: ["python", "desarrollo", "configuración", "herramientas"]
+      },
+      {
+        id: 7,
+        title: "La IA multimodal: el futuro de la inteligencia artificial",
+        category: "IA",
+        content: "Sistemas que combinan texto, imágenes y audio para entender el mundo como los humanos",
+        author: "David González",
+        date: "2025-05-20",
+        tags: ["ia", "multimodal", "artificial", "inteligencia"]
+      },
+      {
+        id: 8,
+        title: "Conferencia Tech 2025: Las tendencias del momento",
+        category: "Eventos",
+        content: "La Conferencia Tech 2025 reunió a los líderes más influyentes del sector tecnológico en Lima, Perú, para debatir sobre las tendencias que marcarán el futuro de la industria.",
+        author: "Laura Méndez",
+        date: "2025-05-20",
+        tags: ["conferencia", "eventos", "tecnología", "tendencias"]
+      }
+    ];
+
+    // ==========================================
+    // FUNCIONES DE BÚSQUEDA
+    // ==========================================
+    
+    // Función principal de búsqueda
+    function performSearch(query) {
+      const searchTerm = query.toLowerCase().trim();
+      
+      if (searchTerm === '') {
+        return [];
+      }
+      
+      return articlesData.filter(article => {
+        return (
+          article.title.toLowerCase().includes(searchTerm) ||
+          article.content.toLowerCase().includes(searchTerm) ||
+          article.category.toLowerCase().includes(searchTerm) ||
+          article.author.toLowerCase().includes(searchTerm) ||
+          article.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+        );
+      });
+    }
+    
+    // Función para mostrar resultados de búsqueda
+    function displaySearchResults(results, query) {
+      const container = document.querySelector('.container.mb-5');
+      
+      // Remover resultados anteriores si existen
+      const existingResults = document.getElementById('search-results');
+      if (existingResults) {
+        existingResults.remove();
+      }
+      
+      // Crear contenedor de resultados
+      const resultsContainer = document.createElement('div');
+      resultsContainer.id = 'search-results';
+      resultsContainer.className = 'mb-5';
+      
+      let html = `
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="h4 text-danger">
+                <i class="fas fa-search me-2"></i>
+                Resultados de búsqueda para: "<span class="text-dark">${query}</span>"
+              </h2>
+              <button onclick="clearSearchResults()" class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-times me-1"></i>Limpiar
+              </button>
+            </div>
+            <p class="text-muted">Se encontraron ${results.length} resultado(s)</p>
+          </div>
+        </div>
+      `;
+      
+      if (results.length === 0) {
+        html += `
+          <div class="row">
+            <div class="col-12">
+              <div class="text-center py-5">
+                <i class="fas fa-search fs-1 text-muted mb-3"></i>
+                <h3 class="text-muted">No se encontraron resultados</h3>
+                <p class="text-muted">Intenta con otros términos de búsqueda</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        html += '<div class="row g-4">';
+        
+        results.forEach(article => {
+          const badgeColor = getBadgeColor(article.category);
+          const formattedDate = formatDate(article.date);
+          
+          html += `
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <div class="mb-2">
+                    <span class="badge ${badgeColor} mb-2">${article.category}</span>
+                  </div>
+                  <h5 class="card-title">
+                    <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(${article.id})">
+                      ${highlightSearchTerm(article.title, query)}
+                    </a>
+                  </h5>
+                  <p class="card-text text-muted small">
+                    ${highlightSearchTerm(article.content.substring(0, 100) + '...', query)}
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">
+                      <i class="fas fa-user me-1"></i>${article.author}
+                    </small>
+                    <small class="text-muted">
+                      <i class="fas fa-calendar me-1"></i>${formattedDate}
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        
+        html += '</div>';
+      }
+      
+      resultsContainer.innerHTML = html;
+
+      // Insertar resultados después del hero section
+      const heroSection = document.querySelector('.hero-section').closest('.row');
+      heroSection.parentNode.insertBefore(resultsContainer, heroSection.nextSibling);
+      
+      // Scroll a los resultados
+      resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Función para resaltar términos de búsqueda
+    function highlightSearchTerm(text, term) {
+      if (!term.trim()) return text;
+      
+      const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<mark class="bg-warning">$1</mark>');
+    }
+
+    // Función para limpiar resultados
+    function clearSearchResults() {
+      const resultsContainer = document.getElementById('search-results');
+      if (resultsContainer) {
+        resultsContainer.remove();
+      }
+      
+      // Limpiar input de búsqueda
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.value = '';
+      }
+    }
+
+    // Función para abrir artículo (simulación)
+    function openArticle(articleId) {
+      const article = articlesData.find(a => a.id === articleId);
+      if (article) {
+        alert(`Abriendo artículo: "${article.title}"\n\nEn una implementación real, esto redirigiría a la página completa del artículo.`);
+      }
+    }
+
+    // Función para guardar búsquedas recientes mejorada
+    function saveRecentSearch(term) {
+      let recentSearches = JSON.parse(localStorage.getItem('recentSearches') || '[]');
+      
+      // Evitar duplicados y agregar al principio
+      recentSearches = recentSearches.filter(search => search.toLowerCase() !== term.toLowerCase());
+      recentSearches.unshift(term);
+      
+      // Limitar a 10 búsquedas recientes
+      recentSearches = recentSearches.slice(0, 10);
+      
+      localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+    }
+
+    // Función para mostrar búsquedas recientes
+    function showRecentSearches() {
+      const recentSearches = JSON.parse(localStorage.getItem('recentSearches') || '[]');
+      
+      if (recentSearches.length > 0) {
+        console.log('Búsquedas recientes:', recentSearches);
+        // Podrías implementar una lista desplegable aquí
+      }
+    }
+
+    // ==========================================
+    // FUNCIONES AUXILIARES
+    // ==========================================
+
+    // Función para obtener color de badge según categoría
+    function getBadgeColor(category) {
+      const colors = {
+        'Desarrollo': 'bg-primary',
+        'Innovación': 'bg-info',
+        'Programación': 'bg-success',
+        'Hardware': 'bg-secondary',
+        'Ciberseguridad': 'bg-warning text-dark',
+        'IA': 'bg-danger'
+      };
+      return colors[category] || 'bg-secondary';
+    }
+
+    // Función para formatear fecha
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('es-ES', options);
+    }
+
+    // ==========================================
+    // SISTEMA DE TEMAS (CLARO/OSCURO)
+    // ==========================================
+
+    // Función para alternar entre modo claro y oscuro
+    function initThemeToggle() {
+      document.getElementById('theme-toggle').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const iconElement = this.querySelector('i');
+        const isDarkMode = document.body.classList.toggle('dark-mode');
+
+        if (isDarkMode) {
+          iconElement.classList.remove('fa-moon');
+          iconElement.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          iconElement.classList.remove('fa-sun');
+          iconElement.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    }
+
+    // Verificar tema guardado
+    function checkSavedTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        const themeIcon = document.querySelector('#theme-toggle i');
+        if (themeIcon) {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+        }
+      }
+    }
+
+    // ==========================================
+    // SISTEMA DE AUTENTICACIÓN
+    // ==========================================
+
+    // Función para manejar el formulario de registro
+    function initRegisterForm() {
+      document.getElementById('register-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerPasswordConfirm').value;
+        
+        // Validación básica
+        if (password !== confirmPassword) {
+          document.getElementById('register-error').textContent = 'Las contraseñas no coinciden';
+          document.getElementById('register-error').classList.remove('d-none');
+          document.getElementById('register-success').classList.add('d-none');
+          return;
+        }
+        
+        // Simulación de registro exitoso
+        const userData = {
+          name: name,
+          email: email,
+          registeredAt: new Date().toISOString()
+        };
+        
+        // Guardar en localStorage (simulando una base de datos)
+        localStorage.setItem('user_' + email, JSON.stringify(userData));
+        
+        // Mostrar mensaje de éxito
+        document.getElementById('register-success').classList.remove('d-none');
+        document.getElementById('register-error').classList.add('d-none');
+        
+        // Reiniciar formulario
+        this.reset();
+        
+        // Cerrar modal después de 2 segundos
+        setTimeout(() => {
+          const modal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+          modal.hide();
+        }, 2000);
+      });
+    }
+
+    // Función para manejar el formulario de inicio de sesión
+    function initLoginForm() {
+      document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const remember = document.getElementById('loginRemember').checked;
+        
+        // Verificar si el usuario existe (simulación)
+        const userData = localStorage.getItem('user_' + email);
+        
+        if (userData) {
+          // En un caso real, verificaríamos la contraseña con el hash almacenado
+          // Aquí simplemente simulamos un inicio de sesión exitoso
+          document.getElementById('login-success').classList.remove('d-none');
+          document.getElementById('login-error').classList.add('d-none');
+          
+          // Guardar sesión
+          if (remember) {
+            localStorage.setItem('currentUser', email);
+          } else {
+            sessionStorage.setItem('currentUser', email);
+          }
+          
+          // Reiniciar formulario
+          this.reset();
+          
+          // Actualizar UI para usuario logueado
+          updateUIForLoggedUser(JSON.parse(userData));
+          
+          // Cerrar modal después de 2 segundos
+          setTimeout(() => {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            modal.hide();
+          }, 2000);
+        } else {
+          document.getElementById('login-error').classList.remove('d-none');
+          document.getElementById('login-success').classList.add('d-none');
+        }
+      });
+    }
+
+    // Función para actualizar la UI cuando el usuario está logueado
+    function updateUIForLoggedUser(userData) {
+      const loginButton = document.querySelector('.btn-light.text-danger');
+      const registerButton = document.querySelector('.btn-outline-light.me-2');
+      
+      // Actualizar botones de header
+      if (loginButton) {
+        loginButton.innerHTML = `<i class="fas fa-user me-1"></i> ${userData.name}`;
+      }
+      if (registerButton) {
+        registerButton.innerHTML = `<i class="fas fa-sign-out-alt me-1"></i> Cerrar sesión`;
+        
+        // Cambiar evento del botón de cerrar sesión
+        registerButton.removeEventListener('click', openRegisterModal);
+        registerButton.addEventListener('click', logoutUser);
+      }
+    }
+
+    // Función para cerrar sesión
+    function logoutUser(e) {
+      e.preventDefault();
+      
+      // Eliminar datos de sesión
+      localStorage.removeItem('currentUser');
+      sessionStorage.removeItem('currentUser');
+      
+      // Resetear UI
+      const loginButton = document.querySelector('.btn-light.text-danger');
+      const registerButton = document.querySelector('.btn-outline-light.me-2');
+      
+      if (loginButton) {
+        loginButton.innerHTML = '<i class="fas fa-sign-in-alt me-1"></i> <span class="login-text">Iniciar Sesión</span>';
+      }
+      if (registerButton) {
+        registerButton.innerHTML = '<i class="fas fa-user-plus me-1"></i> <span class="register-text">Registrarse</span>';
+        
+        // Restaurar eventos originales
+        registerButton.addEventListener('click', openRegisterModal);
+      }
+      
+      // Recargar página para restaurar el estado inicial completo
+      location.reload();
+    }
+
+    // Función para abrir modal de registro
+    function openRegisterModal() {
+      const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+      registerModal.show();
+    }
+
+    // Verificar si hay un usuario logueado al cargar la página
+    function checkLoggedUser() {
+      const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
+      
+      if (currentUser) {
+        const userData = localStorage.getItem('user_' + currentUser);
+        if (userData) {
+          updateUIForLoggedUser(JSON.parse(userData));
+        }
+      }
+    }
+
+    // ==========================================
+    // CONFIGURACIÓN DE IDIOMA
+    // ==========================================
+
+    // Verificar idioma guardado
+    function checkSavedLanguage() {
+      const savedLanguage = localStorage.getItem('preferredLanguage');
+      if (savedLanguage && translations && translations[savedLanguage]) {
+        changeLanguage(savedLanguage);
+      }
+    }
+
+    // ==========================================
+    // INICIALIZACIÓN Y EVENTOS
+    // ==========================================
+
+    // Configuración inicial del DOM
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // Inicializar Google Translate observer
+      const observer = new MutationObserver(hideGoogleTranslateDiv);
+      observer.observe(document.body, { 
+        childList: true, 
+        subtree: true 
+      });
+      hideGoogleTranslateDiv();
+
+      // Configurar formulario de búsqueda
+      const searchForm = document.getElementById('search-form');
+      const searchInput = document.getElementById('search-input');
+      
+      if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const searchTerm = searchInput.value.trim();
+          
+          if (searchTerm.length > 0) {
+            // Realizar búsqueda
+            const results = performSearch(searchTerm);
+            
+            // Mostrar resultados
+            displaySearchResults(results, searchTerm);
+            
+            // Guardar búsqueda reciente
+            saveRecentSearch(searchTerm);
+            
+            console.log(`Búsqueda realizada: "${searchTerm}" - ${results.length} resultados encontrados`);
+          }
+        });
+      }
+      
+      // Búsqueda en tiempo real (opcional)
+      if (searchInput) {
+        let searchTimeout;
+        
+        searchInput.addEventListener('input', function() {
+          clearTimeout(searchTimeout);
+          
+          const searchTerm = this.value.trim();
+          
+          if (searchTerm.length >= 3) {
+            searchTimeout = setTimeout(() => {
+              const results = performSearch(searchTerm);
+              displaySearchResults(results, searchTerm);
+            }, 500); 
+          } else if (searchTerm.length === 0) {
+            clearSearchResults();
+          }
+        });
+      }
+
+      // Inicializar sistemas
+      initThemeToggle();
+      initRegisterForm();
+      initLoginForm();
+      
+      // Verificar configuraciones guardadas
+      checkSavedTheme();
+      checkSavedLanguage();
+      checkLoggedUser();
+
+      // Configuración responsive para dispositivos móviles
+      if (window.innerWidth < 768) {
+        const languageSelector = document.querySelector('.language-selector');
+        if (languageSelector) {
+          languageSelector.style.display = 'none';
+        }
+      }
+
+      const explorarBtn = document.getElementById('explorarNoticiasBtn');
+      if (explorarBtn) {
+        explorarBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Hacer scroll suave a la sección de pestañas/categorías
+          const tabsSection = document.getElementById('categoryTabs');
+          if (tabsSection) {
+            tabsSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+    });
+
+  function mostrarNoticiaCompleta(id) {
+    const noticia = articlesData.find(n => n.id === id);
+    if (!noticia) return;
+
+    // Asocia imágenes a cada noticia por id
+    let imagen = '';
+    switch (id) {
+      case 1:
+        imagen = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80';
+        break;
+      case 2:
+        imagen = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80';
+        break;
+      case 3:
+        imagen = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80';
+        break;
+      case 4:
+        imagen = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80';
+        break;
+      case 5:
+        imagen = 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1200&q=80';
+        break;
+      case 6:
+        imagen = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80'; // Imagen tecnológica moderna
+        break;
+      case 7:
+        imagen = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80';
+        break;
+      case 8:
+        imagen = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'; // Imagen de evento tecnológico
+        break;
+      default:
+        imagen = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80';
+    }
+
+    // Contenido extendido personalizado para cada noticia
+    let contenidoExtendido = '';
+    if (id === 1) {
+      contenidoExtendido = `
+        <p>
+          El desarrollo web ha experimentado una transformación radical en los últimos años gracias a la aparición de frameworks como Next.js, React y Vue. Estos frameworks permiten a los desarrolladores crear aplicaciones más rápidas, escalables y seguras.
+        </p>
+        <p>
+          Además, la integración de inteligencia artificial en los flujos de trabajo está permitiendo automatizar tareas repetitivas, mejorar la experiencia del usuario y optimizar el rendimiento de las aplicaciones.
+        </p>
+        <ul>
+          <li>Automatización de pruebas y despliegues.</li>
+          <li>Generación de código asistida por IA.</li>
+          <li>Personalización dinámica de interfaces.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"La revolución de los frameworks JavaScript y la IA está democratizando el acceso al desarrollo web profesional." - Juan Pérez, experto en desarrollo web</p>
+        
+        </blockquote>
+        <p>
+          En conclusión, los desarrolladores full-stack que dominen estas herramientas estarán mejor preparados para afrontar los retos del futuro tecnológico.
+        </p>
+      `;
+    } else if (id === 2) {
+      contenidoExtendido = `
+        <p>
+          Las startups tecnológicas están liderando la innovación en sectores clave como la salud, la educación y la energía. Gracias a la inteligencia artificial y la automatización, estas empresas logran procesos más eficientes y productos más inteligentes.
+        </p>
+        <ul>
+          <li>IA aplicada a diagnósticos médicos.</li>
+          <li>Robots en la industria manufacturera.</li>
+          <li>Plataformas educativas personalizadas.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"La automatización no solo reduce costos, sino que también mejora la calidad de vida de las personas." - María García, analista de innovación</p>
+        </blockquote>
+        <p>
+          El futuro de la industria será cada vez más digital y automatizado, abriendo nuevas oportunidades para emprendedores y profesionales tecnológicos.
+        </p>
+      `;
+    } else if (id === 3) {
+      contenidoExtendido = `
+        <p>
+          Java sigue evolucionando con nuevas versiones que mejoran el rendimiento, la seguridad y la productividad de los desarrolladores. El salto del JDK 8 al JDK 28 incluye características como expresiones lambda, módulos, y mejoras en la recolección de basura.
+        </p>
+        <ul>
+          <li>Mayor compatibilidad con la nube.</li>
+          <li>Herramientas modernas para desarrollo empresarial.</li>
+          <li>Soporte extendido y comunidad activa.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"Java se mantiene relevante gracias a su constante innovación y robustez." - Carlos López, arquitecto de software</p>
+        </blockquote>
+        <p>
+          Si eres desarrollador, actualizarte en Java es clave para aprovechar todo su potencial en el mundo empresarial actual.
+        </p>
+      `;
+    } else if (id === 4) {
+      contenidoExtendido = `
+        <p>
+          Los procesadores cuánticos prometen revolucionar la informática doméstica. Gracias a avances en miniaturización y enfriamiento, pronto estarán disponibles para consumidores.
+        </p>
+        <ul>
+          <li>Procesamiento de datos a velocidades nunca vistas.</li>
+          <li>Aplicaciones en criptografía y simulaciones científicas.</li>
+          <li>Desafíos en software y compatibilidad.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"La computación cuántica será tan común como los smartphones en pocos años." - Ana Rodríguez, ingeniera en hardware</p>
+          
+        </blockquote>
+        <p>
+          Prepárate para una nueva era de tecnología en casa.
+        </p>
+      `;
+    } else if (id === 5) {
+      contenidoExtendido = `
+        <p>
+          La autenticación biométrica está reemplazando rápidamente a las contraseñas tradicionales. El reconocimiento facial y de voz ofrecen mayor seguridad y comodidad.
+        </p>
+        <ul>
+          <li>Menos riesgo de hackeos por contraseñas débiles.</li>
+          <li>Acceso rápido y personalizado a dispositivos.</li>
+          <li>Desafíos en privacidad y protección de datos.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"La biometría es el futuro de la seguridad digital." - Pedro Martínez, experto en ciberseguridad<</p>
+        </blockquote>
+        <p>
+          ¿Estás listo para decirle adiós a tus contraseñas?
+        </p>
+      `;
+    } else if (id === 6) {
+      contenidoExtendido = `
+        <p>
+          Configurar tu entorno de desarrollo para Python en 2025 es más sencillo y potente que nunca. Aquí tienes una guía paso a paso para que tu experiencia como desarrollador sea óptima:
+        </p>
+        <ol>
+          <li><strong>Instala Python 3.12+</strong>: Descarga la última versión desde <a href="https://www.python.org/downloads/" target="_blank">python.org</a> y asegúrate de agregar Python al PATH.</li>
+          <li><strong>Utiliza entornos virtuales</strong>: Ejecuta <code>python -m venv venv</code> para aislar dependencias de cada proyecto.</li>
+          <li><strong>Elige un editor moderno</strong>: Visual Studio Code es ideal por su integración con Python, autocompletado y depuración.</li>
+          <li><strong>Instala extensiones útiles</strong>: Añade extensiones como Python, Pylance, Black y Jupyter en VS Code.</li>
+          <li><strong>Gestiona paquetes con pip</strong>: Usa <code>pip install paquete</code> para instalar librerías y <code>pip freeze &gt; requirements.txt</code> para guardar dependencias.</li>
+          <li><strong>Automatiza pruebas</strong>: Configura <code>pytest</code> para pruebas unitarias y <code>pre-commit</code> para mantener la calidad del código.</li>
+          <li><strong>Versiona tu código</strong>: Usa Git y GitHub para control de versiones y colaboración.</li>
+        </ol>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"Un entorno bien configurado es la base de la productividad y la calidad en cualquier proyecto de software." - Sofía Hernández, desarrolladora Python</p>
+        </blockquote>
+        <p>
+          Sigue estos pasos y estarás listo para afrontar cualquier reto de desarrollo en Python, desde ciencia de datos hasta aplicaciones web modernas.
+        </p>
+      `;
+      imagen = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80'; // Imagen tecnológica moderna
+    } else if (id === 7) {
+      contenidoExtendido = `
+        <p>
+          La inteligencia artificial multimodal combina texto, imágenes y audio para crear sistemas más inteligentes y versátiles.
+        </p>
+        <ul>
+          <li>Asistentes virtuales que entienden imágenes y voz.</li>
+          <li>Aplicaciones en medicina, educación y entretenimiento.</li>
+          <li>Desafíos éticos y de privacidad.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"La IA multimodal es el siguiente paso hacia una inteligencia artificial verdaderamente humana." - David González, investigador en IA</p>
+        </blockquote>
+        <p>
+          El futuro de la IA será cada vez más integrado y natural para los usuarios.
+        </p>
+      `;
+    } else if (id === 8) {
+      contenidoExtendido = `
+        <p>
+          La <strong>Conferencia Tech 2025</strong> reunió a los líderes más influyentes del sector tecnológico en Lima, Perú, para debatir sobre las tendencias que marcarán el futuro de la industria. 
+        </p>
+        <ul>
+          <li>Avances en computación cuántica y su impacto en la vida cotidiana.</li>
+          <li>El auge de la inteligencia artificial multimodal en empresas y hogares.</li>
+          <li>La importancia de la ciberseguridad en un mundo hiperconectado.</li>
+          <li>Paneles sobre sostenibilidad y tecnología verde.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"Tech 2025 ha sido el punto de encuentro para quienes están construyendo el mañana." - Laura Méndez, organizadora del evento</p>
+        </blockquote>
+        <p>
+          Más de 500 asistentes participaron en talleres, charlas magistrales y sesiones de networking, consolidando a la conferencia como un referente en Latinoamérica.
+        </p>
+        <div class="alert alert-info mt-4">
+          <i class="fas fa-info-circle me-2"></i>
+          ¿Te perdiste el evento? Pronto estarán disponibles las grabaciones y materiales en el sitio oficial.
+        </div>
+      `;
+      imagen = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'; // Imagen de evento tecnológico
+    } else {
+      contenidoExtendido = `<p>${noticia.content}</p>`;
+    }
+
+    const html = `
+      <div class="card mb-4 shadow border-0 rounded-4">
+        <img src="${imagen}" class="card-img-top rounded-top-4" alt="${noticia.title}">
+        <div class="card-body">
+          <button class="btn btn-outline-secondary btn-sm float-end" onclick="cerrarNoticiaCompleta()">
+            <i class="fas fa-arrow-left"></i> Volver
+          </button>
+          <h2 class="mb-3">${noticia.title}</h2>
+          <div class="mb-2">
+            <span class="badge bg-primary">${noticia.category}</span>
+            <span class="badge bg-secondary">${noticia.author}</span>
+            <span class="badge bg-light text-dark">${formatDate(noticia.date)}</span>
+          </div>
+          <hr>
+          <p class="fs-5">${noticia.content}</p>
+          ${contenidoExtendido}
+        </div>
+      </div>
+    `;
+
+    // Oculta el contenido principal
+    document.querySelectorAll('.row.mb-4, .row.mb-5, .row.g-4, .row.text-center, .tab-content').forEach(el => el.style.display = 'none');
+
+    // Muestra la noticia completa
+    const contenedor = document.getElementById('noticia-completa');
+    contenedor.innerHTML = html;
+    contenedor.style.display = 'block';
+
+    window.scrollTo(0, 0);
+    }
+
+    function cerrarNoticiaCompleta() {
+      document.getElementById('noticia-completa').style.display = 'none';
+      document.getElementById('noticia-completa').innerHTML = '';
+      document.querySelectorAll('.row.mb-4, .row.mb-5, .row.g-4, .row.text-center, .tab-content').forEach(el => el.style.display = '');
+    }
+
+    // Mostrar la fecha actual en el top bar
+    document.addEventListener('DOMContentLoaded', function() {
+      const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+      const dias = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+      const hoy = new Date();
+      const fechaFormateada = `${dias[hoy.getDay()]}, ${hoy.getDate()} de ${meses[hoy.getMonth()]} de ${hoy.getFullYear()}`;
+      const fechaElemento = document.getElementById('current-date');
+      if (fechaElemento) fechaElemento.textContent = fechaFormateada;
+    });
+  </script>
+</body>
+</html>

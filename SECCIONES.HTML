@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secciones - Mundo Tecnológico</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/ESTILOS.CSS">
+  <style>
+    .seccion-pagina { display: none; }
+    .seccion-pagina.active { display: block; }
+  </style>
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="bg-dark text-white py-2 small d-none d-md-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="me-3"><i class="fas fa-calendar-alt me-1"></i> <span id="current-date">Domingo, 6 de abril de 2025</span></span>
+        <span><i class="fas fa-rss me-1"></i> Últimas actualizaciones</span>
+      </div>
+      <div>
+        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Header -->
+  <header class="bg-danger text-white py-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-globe-americas me-2 fs-3"></i>
+            <h1 class="m-0 fs-3 fw-bold">Mundo Tecnológico</h1>
+          </div>
+        </div>
+        <div class="col-md-5 mb-3 mb-md-0">
+          <form class="d-flex position-relative" id="search-form">
+            <div class="input-group">
+              <span class="input-group-text bg-white border-end-0">
+                <i class="fas fa-search text-muted"></i>
+              </span>
+              <input class="form-control border-start-0 ps-0"
+                    type="search"
+                    placeholder="Buscar noticias, tutoriales, tecnología..."
+                    aria-label="Buscar"
+                    id="search-input"
+                    autocomplete="off">
+              <button class="btn btn-outline-light position-absolute end-0 top-0 h-100"
+                      type="submit"
+                      style="z-index: 3; border-left: none;">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-3">
+          <div class="d-flex justify-content-md-end">
+            <button class="btn btn-outline-light me-2 btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal"><i class="fas fa-user-plus me-1"></i> <span class="register-text">Registrarse</span></button>
+            <button class="btn btn-light text-danger btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fas fa-sign-in-alt me-1"></i> <span class="login-text">Iniciar Sesión</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-lg-none" href="#"><i class="fas fa-globe-americas text-danger"></i> MT</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="fas fa-home text-danger"></i> <span class="nav-home">Inicio</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarSeccion('nuevas-tecnologias'); return false;" id="nav-nuevas-tecnologias">
+              <i class="fas fa-rocket text-danger"></i> Nuevas Tecnologías
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarSeccion('backend'); return false;" id="nav-backend">
+              <i class="fas fa-server text-danger"></i> Backend
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarSeccion('frontend'); return false;" id="nav-frontend">
+              <i class="fas fa-desktop text-danger"></i> Frontend
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarSeccion('nosotros'); return false;" id="nav-nosotros">
+              <i class="fas fa-users text-danger"></i> Nosotros
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <button class="language-selector" onclick="activateGoogleTranslate();">
+              Seleccionar Idioma <i class="fa fa-globe ms-2"></i>
+            </button>
+            <div id="google_translate_element"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="theme-toggle"><i class="fas fa-moon text-danger"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal de Registro -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="registerModalLabel"><span class="register-title">Crear nueva cuenta</span></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="register-form">
+            <div class="mb-3">
+              <label for="registerName" class="form-label"><span class="register-name">Nombre completo</span></label>
+              <input type="text" class="form-control" id="registerName" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label"><span class="register-email">Correo electrónico</span></label>
+              <input type="email" class="form-control" id="registerEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label"><span class="register-password">Contraseña</span></label>
+              <input type="password" class="form-control" id="registerPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPasswordConfirm" class="form-label"><span class="register-confirm">Confirmar contraseña</span></label>
+              <input type="password" class="form-control" id="registerPasswordConfirm" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="registerTerms" required>
+              <label class="form-check-label" for="registerTerms"><span class="register-terms">Acepto los términos y condiciones</span></label>
+            </div>
+            <div class="alert alert-success d-none" id="register-success"><span class="register-success-msg">¡Registro exitoso! Ya puedes iniciar sesión.</span></div>
+            <div class="alert alert-danger d-none" id="register-error"><span class="register-error-msg">Error en el registro. Por favor intenta nuevamente.</span></div>
+            <button type="submit" class="btn btn-danger w-100"><span class="register-btn">Registrarse</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Inicio de Sesión -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="loginModalLabel"><span class="login-title">Iniciar sesión</span></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label"><span class="login-email">Correo electrónico</span></label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label"><span class="login-password">Contraseña</span></label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="loginRemember">
+              <label class="form-check-label" for="loginRemember"><span class="login-remember">Recordarme</span></label>
+            </div>
+            <div class="alert alert-success d-none" id="login-success"><span class="login-success-msg">¡Inicio de sesión exitoso!</span></div>
+            <div class="alert alert-danger d-none" id="login-error"><span class="login-error-msg">Credenciales incorrectas. Por favor intenta nuevamente.</span></div>
+            <button type="submit" class="btn btn-danger w-100"><span class="login-btn">Iniciar sesión</span></button>
+          </form>
+          <div class="text-center mt-3">
+            <a href="#" class="small text-danger"><span class="login-forgot">¿Olvidaste tu contraseña?</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIONES COMO "PÁGINAS" -->
+  <section id="nuevas-tecnologias" class="seccion-pagina active container my-5">
+    <h2 class="mb-4 text-danger"><i class="fas fa-rocket me-2"></i>Nuevas Tecnologías</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Procesadores cuánticos">
+          <div class="card-body">
+            <span class="badge bg-primary mb-2">Hardware</span>
+            <h5 class="card-title">Procesadores cuánticos para el hogar</h5>
+            <p class="card-text">Avances en miniaturización y enfriamiento permitirán su uso doméstico en 2026.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Más tarjetas/noticias aquí -->
+    </div>
+  </section>
+
+  <section id="backend" class="seccion-pagina container my-5">
+    <h2 class="mb-4 text-danger"><i class="fas fa-server me-2"></i>Backend</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Java Backend">
+          <div class="card-body">
+            <span class="badge bg-danger mb-2">Java</span>
+            <h5 class="card-title">La evolución de Java: del JDK 8 al JDK 28</h5>
+            <p class="card-text">Cómo ha evolucionado uno de los lenguajes más populares en los últimos años.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Más tarjetas de backend aquí -->
+    </div>
+  </section>
+
+  <section id="frontend" class="seccion-pagina container my-5">
+    <h2 class="mb-4 text-danger"><i class="fas fa-desktop me-2"></i>Frontend</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Frontend JS">
+          <div class="card-body">
+            <span class="badge bg-info mb-2">JavaScript</span>
+            <h5 class="card-title">El futuro del desarrollo frontend con frameworks modernos</h5>
+            <p class="card-text">React, Vue y Angular están cambiando la forma de crear interfaces web.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Más tarjetas de frontend aquí -->
+    </div>
+  </section>
+
+  <!-- SECCIÓN: NOSOTROS MEJORADA -->
+  <section id="nosotros" class="seccion-pagina container my-5">
+    <div class="row align-items-center">
+      <div class="col-lg-5 text-center mb-4 mb-lg-0">
+        <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80" class="img-fluid rounded-circle shadow-lg border border-4 border-danger" alt="Equipo Mundo Tecnológico" style="max-width: 260px;">
+        <h4 class="mt-3 text-danger fw-bold">Equipo Mundo Tecnológico</h4>
+        <p class="text-muted mb-0">Innovación, pasión y compromiso</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="card shadow border-0">
+          <div class="card-body">
+            <h2 class="mb-3 text-danger"><i class="fas fa-users me-2"></i>Sobre Nosotros</h2>
+            <p class="lead">
+              <strong>Mundo Tecnológico</strong> es el portal líder en noticias, tutoriales y análisis sobre tecnología y programación en el mundo hispanohablante.
+            </p>
+            <ul class="list-group list-group-flush mb-3">
+              <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Noticias actualizadas diariamente</li>
+              <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Tutoriales de programación y tecnología</li>
+              <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Eventos y conferencias del sector</li>
+              <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Comunidad activa y colaborativa</li>
+            </ul>
+            <blockquote class="blockquote text-end">
+              <p class="mb-0 fst-italic">"Nuestra misión es acercar la tecnología a todos, inspirando y formando a la próxima generación de innovadores."</p>
+              <footer class="blockquote-footer mt-2">El equipo de Mundo Tecnológico</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="index.html" class="btn btn-light btn-lg px-4 py-2">
+        <i class="fas fa-arrow-left me-2"></i>Volver al Inicio
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      Mundo Tecnologico 2025. Creciendo juntos en el mundo de la tecnología.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Mostrar la sección correspondiente según el hash de la URL
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.seccion-pagina').forEach(sec => sec.classList.remove('active'));
+      const seccion = document.getElementById(id);
+      if (seccion) {
+        seccion.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Detectar hash al cargar y al cambiar
+    function activarSeccionPorHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById(hash)) {
+        mostrarSeccion(hash);
+      } else {
+        mostrarSeccion('nuevas-tecnologias');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', activarSeccionPorHash);
+    window.addEventListener('hashchange', activarSeccionPorHash);
+
+    // Opcional: activar nav-link activo
+    function activarNavLink(id) {
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => link.classList.remove('active', 'fw-bold'));
+      const nav = document.getElementById('nav-' + id);
+      if (nav) {
+        nav.classList.add('active', 'fw-bold');
+      }
+    }
+    // Llama a activarNavLink cuando cambie la sección
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.seccion-pagina').forEach(sec => sec.classList.remove('active'));
+      const seccion = document.getElementById(id);
+      if (seccion) {
+        seccion.classList.add('active');
+        activarNavLink(id);
+        window.location.hash = id;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // GOOGLE TRANSLATE
+    (function() {
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,es,fr,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+      hideGoogleTranslateDiv();
+    }
+
+    function hideGoogleTranslateDiv() {
+      const translateDiv = document.getElementById('google_translate_element');
+      if (translateDiv) {
+        translateDiv.style.visibility = 'hidden';
+        translateDiv.style.position = 'absolute';
+        translateDiv.style.top = '-9999px';
+        translateDiv.style.left = '-9999px';
+        translateDiv.style.height = '1px';
+        translateDiv.style.width = '1px';
+        translateDiv.style.overflow = 'hidden';
+      }
+    }
+
+    function activateGoogleTranslate() {
+      setTimeout(function() {
+        try {
+          const translateElement = document.querySelector('.goog-te-gadget-simple, .goog-te-menu-value');
+          if (translateElement) {
+            translateElement.click();
+          }
+        } catch (e) {}
+      }, 500);
+    }
+
+    function initThemeToggle() {
+        document.getElementById('theme-toggle').addEventListener('click', function (e) {
+          e.preventDefault();
+          const iconElement = this.querySelector('i');
+          const isDarkMode = document.body.classList.toggle('dark-mode');
+          if (isDarkMode) {
+            iconElement.classList.remove('fa-moon');
+            iconElement.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            iconElement.classList.remove('fa-sun');
+            iconElement.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+
+      function checkSavedTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          document.body.classList.add('dark-mode');
+          const themeIcon = document.querySelector('#theme-toggle i');
+          if (themeIcon) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+          }
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // ...otros inicializadores...
+        initThemeToggle();
+        checkSavedTheme();
+        checkLoggedUser();
+      });
+
+    // Funciones para actualizar la interfaz de usuario según el estado de inicio de sesión
+    function updateUIForLoggedUser(userData) {
+      const loginButton = document.querySelector('.btn-light.text-danger');
+      const registerButton = document.querySelector('.btn-outline-light.me-2');
+
+      if (loginButton) {
+        loginButton.innerHTML = `<i class="fas fa-user me-1"></i> ${userData.name}`;
+        loginButton.setAttribute('disabled', 'disabled');
+      }
+      if (registerButton) {
+        registerButton.innerHTML = `<i class="fas fa-sign-out-alt me-1"></i> Cerrar sesión`;
+        registerButton.removeEventListener('click', openRegisterModal);
+        registerButton.addEventListener('click', logoutUser);
+      }
+    }
+
+    // --- REGISTRO UNIFICADO ---
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+      const password = document.getElementById('registerPassword').value;
+      const passwordConfirm = document.getElementById('registerPasswordConfirm').value;
+      const terms = document.getElementById('registerTerms').checked;
+      const successMsg = document.getElementById('register-success');
+      const errorMsg = document.getElementById('register-error');
+
+      successMsg.classList.add('d-none');
+      errorMsg.classList.add('d-none');
+
+      if (!name || !email || !password || !passwordConfirm || !terms) {
+        errorMsg.textContent = "Completa todos los campos y acepta los términos.";
+        errorMsg.classList.remove('d-none');
+        return;
+      }
+      if (password !== passwordConfirm) {
+        errorMsg.textContent = "Las contraseñas no coinciden.";
+        errorMsg.classList.remove('d-none');
+        return;
+      }
+
+      // Guardar usuario en localStorage bajo la clave 'user_' + email
+      if (localStorage.getItem('user_' + email)) {
+        errorMsg.textContent = "El correo ya está registrado.";
+        errorMsg.classList.remove('d-none');
+        return;
+      }
+
+      const userData = { name, email, password, registeredAt: new Date().toISOString() };
+      localStorage.setItem('user_' + email, JSON.stringify(userData));
+
+      successMsg.classList.remove('d-none');
+      setTimeout(() => {
+        var modal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+        modal.hide();
+        document.getElementById('register-form').reset();
+      }, 1200);
+    });
+
+    // --- LOGIN UNIFICADO ---
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+      const remember = document.getElementById('loginRemember').checked;
+      const successMsg = document.getElementById('login-success');
+      const errorMsg = document.getElementById('login-error');
+
+      successMsg.classList.add('d-none');
+      errorMsg.classList.add('d-none');
+
+      const userDataStr = localStorage.getItem('user_' + email);
+      if (userDataStr) {
+        const userData = JSON.parse(userDataStr);
+        if (userData.password === password) {
+          // Guardar sesión en localStorage o sessionStorage
+          if (remember) {
+            localStorage.setItem('currentUser', email);
+          } else {
+            sessionStorage.setItem('currentUser', email);
+          }
+          successMsg.classList.remove('d-none');
+          setTimeout(() => {
+            var modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            modal.hide();
+            document.getElementById('login-form').reset();
+            updateUIForLoggedUser(userData);
+          }, 1000);
+          return;
+        }
+      }
+      errorMsg.classList.remove('d-none');
+    });
+
+    // --- ACTUALIZAR UI SEGÚN SESIÓN ---
+    function updateUIForLoggedUser(userData) {
+      const loginBtn = document.querySelector('.btn-light.text-danger');
+      const registerBtn = document.querySelector('.btn-outline-light.me-2');
+      if (loginBtn) {
+        loginBtn.innerHTML = `<i class="fas fa-user me-1"></i> ${userData.name}`;
+        loginBtn.setAttribute('disabled', 'disabled');
+        loginBtn.removeAttribute('data-bs-toggle');
+        loginBtn.removeAttribute('data-bs-target');
+      }
+      if (registerBtn) {
+        registerBtn.innerHTML = `<i class="fas fa-sign-out-alt me-1"></i> Cerrar sesión`;
+        registerBtn.removeAttribute('data-bs-toggle');
+        registerBtn.removeAttribute('data-bs-target');
+        registerBtn.onclick = logoutUser;
+      }
+    }
+
+    // --- CERRAR SESIÓN UNIFICADO ---
+    function logoutUser(e) {
+      if (e) e.preventDefault();
+      localStorage.removeItem('currentUser');
+      sessionStorage.removeItem('currentUser');
+      location.reload();
+    }
+
+    // --- CHEQUEAR SESIÓN AL CARGAR ---
+    function checkLoggedUser() {
+      const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
+      if (currentUser) {
+        const userDataStr = localStorage.getItem('user_' + currentUser);
+        if (userDataStr) {
+          updateUIForLoggedUser(JSON.parse(userDataStr));
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', checkLoggedUser);
+
+    // --- ENLACE ENTRE PÁGINAS ---
+    // Si te registras o inicias sesión en index.html, la sesión se mantiene aquí y viceversa,
+    // porque ambos usan localStorage con la misma clave 'currentUser' y 'users'.
+  </script>
+</body>
+</html>
