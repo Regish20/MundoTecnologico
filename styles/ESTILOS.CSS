@@ -128,3 +128,7 @@
         border-radius: inherit;
         z-index: 2;
       }
+
+      .card-img-top{
+        cursor: pointer;
+      }

@@ -171,5 +171,46 @@
         author: "Laura Méndez",
         date: "2025-05-20",
         tags: ["conferencia", "eventos", "tecnología", "tendencias"]
+      },
+      {
+        id: 9,
+        title: "Microservicios: El futuro de la arquitectura de software",
+        content: "Los microservicios están transformando la manera en que desarrollamos y desplegamos aplicaciones empresariales.",
+        category: "Arquitectura",
+        author: "Luis García",
+        date: "2025-01-15"
+      },
+      {
+        id: 10,
+        title: "GraphQL vs REST: ¿Cuál elegir en 2025?",
+        content: "Una comparación detallada entre GraphQL y REST para ayudarte a tomar la mejor decisión.",
+        category: "APIs",
+        author: "Carmen Ruiz",
+        date: "2025-01-10"
+      },
+      {
+        id: 11,
+        title: "Frontend moderno: React, Vue y Angular",
+        content: "Exploramos los frameworks frontend más populares y sus ventajas en el desarrollo actual.",
+        category: "Frontend",
+        author: "Miguel Torres",
+        date: "2025-01-08"
+      },
+      {
+        id: 12,
+        title: "WebAssembly: Poder nativo en la web",
+        content: "Descubre cómo WebAssembly está revolucionando las aplicaciones web de alto rendimiento.",
+        category: "Web",
+        author: "Elena Morales",
+        date: "2025-01-05"
+      },
+      {
+        id: 13,
+        title: "CSS avanzado: Animaciones y efectos modernos",
+        content: "Las nuevas características de CSS que están transformando el diseño web moderno.",
+        category: "CSS",
+        author: "Roberto Silva",
+        date: "2025-01-03"
       }
     ];
+

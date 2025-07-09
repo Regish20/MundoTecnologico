@@ -274,6 +274,8 @@
       }
     });
 
+  
+
   function mostrarNoticiaCompleta(id) {
     const noticia = articlesData.find(n => n.id === id);
     if (!noticia) return;
@@ -305,9 +307,25 @@
       case 8:
         imagen = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'; // Imagen de evento tecnológico
         break;
+      case 9:
+        imagen = 'https://images.unsplash.com/photo-1667372459567-3853510dd5ce?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+        break;
+      case 10:
+        imagen = 'https://images.unsplash.com/photo-1669023414171-56f0740e34cd?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+        break;
+      case 11:
+        imagen = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80';
+        break;
+      case 12:
+        imagen = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+        break;
+      case 13:
+        imagen = 'https://images.unsplash.com/photo-1506097425191-7ad538b29cef?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+        break;
       default:
         imagen = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80';
     }
+
 
     // Contenido extendido personalizado para cada noticia
     let contenidoExtendido = '';
@@ -463,6 +481,96 @@
         </div>
       `;
       imagen = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80'; // Imagen de evento tecnológico
+    } else if (id === 9) {
+      contenidoExtendido = `
+        <p>
+          Los microservicios han revolucionado la arquitectura de software, permitiendo a las empresas escalar y mantener aplicaciones de forma eficiente. Cada componente puede desarrollarse, desplegarse y escalarse de manera independiente.
+        </p>
+        <ul>
+          <li>Despliegues independientes y rápidos.</li>
+          <li>Facilidad para integrar nuevas tecnologías.</li>
+          <li>Mejor tolerancia a fallos.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"La arquitectura de microservicios permite a los equipos innovar sin miedo a romper todo el sistema."</p>
+        </blockquote>
+        <p>
+          En 2025, la mayoría de las grandes empresas ya han migrado a este modelo, obteniendo mayor flexibilidad y velocidad de respuesta ante el mercado.
+        </p>
+      `;
+      
+    } else if (id === 10) {
+      contenidoExtendido = `
+        <p>
+          GraphQL está superando a REST en nuevas implementaciones gracias a su flexibilidad y eficiencia. Permite a los clientes solicitar exactamente los datos que necesitan, reduciendo el tráfico y mejorando la experiencia de desarrollo.
+        </p>
+        <ul>
+          <li>Consultas precisas y optimizadas.</li>
+          <li>Menos endpoints y mayor control.</li>
+          <li>Mejor integración con frontend moderno.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"GraphQL permite a los clientes pedir exactamente lo que necesitan, nada más."</p>
+        </blockquote>
+        <p>
+          Empresas como Facebook, GitHub y Shopify ya han adoptado GraphQL como estándar para sus APIs.
+        </p>
+      `;
+      
+    } else if (id === 11) {
+      contenidoExtendido = `
+        <p>
+          El desarrollo frontend está en constante evolución. Frameworks como React, Vue y Angular permiten crear interfaces de usuario dinámicas, rápidas y escalables.
+        </p>
+        <ul>
+          <li>Componentes reutilizables.</li>
+          <li>Mejor rendimiento y experiencia de usuario.</li>
+          <li>Gran ecosistema de herramientas y librerías.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"El futuro del frontend es modular, reactivo y altamente interactivo."</p>
+        </blockquote>
+        <p>
+          Aprender estos frameworks es esencial para cualquier desarrollador web moderno.
+        </p>
+      `;
+      
+    } else if (id === 12) {
+      contenidoExtendido = `
+        <p>
+          WebAssembly (WASM) permite ejecutar código de alto rendimiento en el navegador, abriendo la puerta a aplicaciones web complejas como juegos, edición de video y más.
+        </p>
+        <ul>
+          <li>Ejecuta código en C, C++, Rust y otros lenguajes en la web.</li>
+          <li>Rendimiento casi nativo en el navegador.</li>
+          <li>Integración sencilla con JavaScript.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"WebAssembly es el futuro de las aplicaciones web complejas."</p>
+        </blockquote>
+        <p>
+          Grandes empresas ya lo usan para ofrecer experiencias web avanzadas y rápidas.
+        </p>
+      `;
+      
+    } else if (id === 13) {
+      contenidoExtendido = `
+        <p>
+          Las nuevas propiedades de CSS permiten crear animaciones y efectos visuales impresionantes sin necesidad de JavaScript, mejorando la experiencia del usuario y el rendimiento.
+        </p>
+        <ul>
+          <li>Animaciones nativas con @keyframes y transitions.</li>
+          <li>Soporte para efectos 3D y filtros avanzados.</li>
+          <li>Interfaces más atractivas y accesibles.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"El diseño web nunca ha sido tan creativo y eficiente como ahora."</p>
+        </blockquote>
+        <p>
+          Dominar CSS avanzado es clave para destacar en el desarrollo frontend actual.
+        </p>
+      `;
+      
     } else {
       contenidoExtendido = `<p>${noticia.content}</p>`;
     }
@@ -496,12 +604,6 @@
     contenedor.style.display = 'block';
 
     window.scrollTo(0, 0);
-    }
-
-    function cerrarNoticiaCompleta() {
-      document.getElementById('noticia-completa').style.display = 'none';
-      document.getElementById('noticia-completa').innerHTML = '';
-      document.querySelectorAll('.row.mb-4, .row.mb-5, .row.g-4, .row.text-center, .tab-content').forEach(el => el.style.display = '');
     }
 
     // Mostrar la fecha actual en el top bar
