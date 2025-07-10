@@ -1,3 +1,136 @@
+    // ==========================================
+    // DATOS DE ARTÍCULOS
+    // ==========================================
+    
+    const articlesData = [
+      {
+        id: 1,
+        title: "El futuro pertenece a los desarrolladores full-stack: La revolución de los frameworks JavaScript",
+        category: "Desarrollo",
+        content: "La evolución de Next.js y otros frameworks modernos está redefiniendo el desarrollo web",
+        author: "Juan Pérez",
+        date: "2025-05-26",
+        tags: ["javascript", "framework", "desarrollo", "fullstack"]
+      },
+      {
+        id: 2,
+        title: "Startups tecnológicas revolucionan la industria con IA y automatización",
+        category: "Innovación",
+        content: "Nuevas empresas están implementando inteligencia artificial y robótica",
+        author: "María García",
+        date: "2025-05-25",
+        tags: ["ia", "startups", "automatización", "innovación"]
+      },
+      {
+        id: 3,
+        title: "Java comienza un nuevo camino en la programación: 3 datos clave",
+        category: "Programación",
+        content: "Las últimas actualizaciones prometen revolucionar el desarrollo de aplicaciones empresariales",
+        author: "Carlos López",
+        date: "2025-05-24",
+        tags: ["java", "programación", "desarrollo", "empresarial"]
+      },
+      {
+        id: 4,
+        title: "Los procesadores cuánticos estarán disponibles para el consumidor en 2026",
+        category: "Hardware",
+        content: "Avances en la miniaturización y enfriamiento permitirán su uso doméstico",
+        author: "Ana Rodríguez",
+        date: "2025-05-23",
+        tags: ["cuántico", "procesadores", "hardware", "consumidor"]
+      },
+      {
+        id: 5,
+        title: "Nuevos métodos de autenticación biométrica que reemplazarán las contraseñas",
+        category: "Ciberseguridad",
+        content: "La combinación de reconocimiento facial y de voz está revolucionando la seguridad",
+        author: "Pedro Martínez",
+        date: "2025-05-22",
+        tags: ["biométrica", "seguridad", "autenticación", "contraseñas"]
+      },
+      {
+        id: 6,
+        title: "Cómo configurar tu entorno de desarrollo para Python en 2025",
+        category: "Programación",
+        content: "Guía completa para configurar Python con las mejores herramientas del mercado",
+        author: "Sofía Hernández",
+        date: "2025-05-21",
+        tags: ["python", "desarrollo", "configuración", "herramientas"]
+      },
+      {
+        id: 7,
+        title: "La IA multimodal: el futuro de la inteligencia artificial",
+        category: "IA",
+        content: "Sistemas que combinan texto, imágenes y audio para entender el mundo como los humanos",
+        author: "David González",
+        date: "2025-05-20",
+        tags: ["ia", "multimodal", "artificial", "inteligencia"]
+      },
+      {
+        id: 8,
+        title: "Conferencia Tech 2025: Las tendencias del momento",
+        category: "Eventos",
+        content: "La Conferencia Tech 2025 reunió a los líderes más influyentes del sector tecnológico en Lima, Perú, para debatir sobre las tendencias que marcarán el futuro de la industria.",
+        author: "Laura Méndez",
+        date: "2025-05-20",
+        tags: ["conferencia", "eventos", "tecnología", "tendencias"]
+      },
+      {
+        id: 9,
+        title: "Microservicios: El futuro de la arquitectura de software",
+        content: "Los microservicios están transformando la manera en que desarrollamos y desplegamos aplicaciones empresariales.",
+        category: "Arquitectura",
+        author: "Luis García",
+        date: "2025-01-15",
+        tags: ["microservicios", "arquitectura", "software", "escalabilidad"]
+      },
+      {
+        id: 10,
+        title: "GraphQL vs REST: ¿Cuál elegir en 2025?",
+        content: "Una comparación detallada entre GraphQL y REST para ayudarte a tomar la mejor decisión.",
+        category: "APIs",
+        author: "Carmen Ruiz",
+        date: "2025-01-10",
+        tags: ["graphql", "rest", "apis", "desarrollo"]
+      },
+      {
+        id: 11,
+        title: "Frontend moderno: React, Vue y Angular",
+        content: "Exploramos los frameworks frontend más populares y sus ventajas en el desarrollo actual.",
+        category: "Frontend",
+        author: "Miguel Torres",
+        date: "2025-01-08",
+        tags: ["react", "vue", "angular", "frontend"]
+      },
+      {
+        id: 12,
+        title: "WebAssembly: Poder nativo en la web",
+        content: "Descubre cómo WebAssembly está revolucionando las aplicaciones web de alto rendimiento.",
+        category: "Web",
+        author: "Elena Morales",
+        date: "2025-01-05",
+        tags: ["webassembly", "wasm", "rendimiento", "web"]
+      },
+      {
+        id: 13,
+        title: "CSS avanzado: Animaciones y efectos modernos",
+        content: "Las nuevas características de CSS que están transformando el diseño web moderno.",
+        category: "CSS",
+        author: "Roberto Silva",
+        date: "2025-01-03",
+        tags: ["css", "animaciones", "diseño", "frontend"]
+      },
+      {
+        id: 14,
+        title: "De JDK 8 a JDK 28: Una evolución que redefine la programación Java",
+        category: "Programación",
+        content: "Java ha recorrido un camino asombroso desde JDK 8 hasta JDK 28, introduciendo mejoras clave en rendimiento, sintaxis, modularidad y herramientas para desarrolladores modernos.",
+        author: "Valeria Ramírez",
+        date: "2025-07-09",
+        tags: ["java", "jdk", "evolución", "programación", "backend"]
+      }
+    ];
+
 
 
 function mostrarNoticiaCompleta(id) {
@@ -37,16 +170,20 @@ function mostrarNoticiaCompleta(id) {
         imagen = 'https://images.unsplash.com/photo-1669023414171-56f0740e34cd?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
         break;
       case 11:
-        imagen = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80';
+        imagen = 'https://images.unsplash.com/photo-1590608897129-79da98d15969?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
         break;
       case 12:
-        imagen = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+        imagen = 'https://images.unsplash.com/photo-1672309046475-4cce2039f342?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
         break;
       case 13:
         imagen = 'https://images.unsplash.com/photo-1506097425191-7ad538b29cef?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
         break;
+      case 14:
+        imagen = "https://images.unsplash.com/photo-1517650862521-d580d5348145?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA";
+        break;
       default:
         imagen = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80';
+
     }
 
     // Contenido extendido personalizado para cada noticia
@@ -215,7 +352,7 @@ function mostrarNoticiaCompleta(id) {
           <li>Mejor tolerancia a fallos.</li>
         </ul>
         <blockquote class="blockquote my-4">
-          <p class="mb-0">"La arquitectura de microservicios permite a los equipos innovar sin miedo a romper todo el sistema."</p>
+          <p class="mb-0">"La arquitectura de microservicios permite a los equipos innovar sin miedo a romper todo el sistema." - Luis García, arquitecto de software</p>
         </blockquote>
         <p>
           En 2025, la mayoría de las grandes empresas ya han migrado a este modelo, obteniendo mayor flexibilidad y velocidad de respuesta ante el mercado.
@@ -233,7 +370,7 @@ function mostrarNoticiaCompleta(id) {
           <li>Mejor integración con frontend moderno.</li>
         </ul>
         <blockquote class="blockquote my-4">
-          <p class="mb-0">"GraphQL permite a los clientes pedir exactamente lo que necesitan, nada más."</p>
+          <p class="mb-0">"GraphQL permite a los clientes pedir exactamente lo que necesitan, nada más." - Carmen Ruíz, diseñadora de redes</p>
         </blockquote>
         <p>
           Empresas como Facebook, GitHub y Shopify ya han adoptado GraphQL como estándar para sus APIs.
@@ -251,7 +388,7 @@ function mostrarNoticiaCompleta(id) {
           <li>Gran ecosistema de herramientas y librerías.</li>
         </ul>
         <blockquote class="blockquote my-4">
-          <p class="mb-0">"El futuro del frontend es modular, reactivo y altamente interactivo."</p>
+          <p class="mb-0">"El futuro del frontend es modular, reactivo y altamente interactivo." - Miguel Torres, desarrollador web</p>
         </blockquote>
         <p>
           Aprender estos frameworks es esencial para cualquier desarrollador web moderno.
@@ -269,7 +406,7 @@ function mostrarNoticiaCompleta(id) {
           <li>Integración sencilla con JavaScript.</li>
         </ul>
         <blockquote class="blockquote my-4">
-          <p class="mb-0">"WebAssembly es el futuro de las aplicaciones web complejas."</p>
+          <p class="mb-0">"WebAssembly es el futuro de las aplicaciones web complejas." - Elena Morales, analista de datos</p>
         </blockquote>
         <p>
           Grandes empresas ya lo usan para ofrecer experiencias web avanzadas y rápidas.
@@ -287,13 +424,29 @@ function mostrarNoticiaCompleta(id) {
           <li>Interfaces más atractivas y accesibles.</li>
         </ul>
         <blockquote class="blockquote my-4">
-          <p class="mb-0">"El diseño web nunca ha sido tan creativo y eficiente como ahora."</p>
+          <p class="mb-0">"El diseño web nunca ha sido tan creativo y eficiente como ahora." - Roberto Silva, diseñador gráfico y web</p>
         </blockquote>
         <p>
           Dominar CSS avanzado es clave para destacar en el desarrollo frontend actual.
         </p>
       `;
-      
+    } else if (id === 14) {
+      contenidoExtendido = `
+        <p>
+          Desde la introducción de expresiones lambda en JDK 8 hasta las capacidades de virtual threads en JDK 28, el lenguaje Java ha dado un salto extraordinario hacia una programación más moderna, eficiente y escalable.
+        </p>
+        <ul>
+          <li>Mejoras significativas en rendimiento y uso de memoria.</li>
+          <li>Funciones como records, pattern matching y nuevos operadores de flujo.</li>
+          <li>Herramientas más potentes para el desarrollo backend y empresarial.</li>
+        </ul>
+        <blockquote class="blockquote my-4">
+          <p class="mb-0">"Java dejó de ser un lenguaje monolítico para convertirse en una plataforma vibrante y adaptable." – Valeria Ramírez, especialista en backend</p>
+        </blockquote>
+        <p>
+          Conocer esta evolución no solo te prepara para los proyectos actuales, sino que te posiciona para liderar los del futuro.
+        </p>
+      `;  
     } else {
       contenidoExtendido = `<p>${noticia.content}</p>`;
     }
@@ -319,7 +472,7 @@ function mostrarNoticiaCompleta(id) {
     `;
 
     // Oculta el contenido principal
-    document.querySelectorAll('.row.mb-4, .row.mb-5, .row.g-4, .row.text-center, .tab-content').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.row.mb-4, .row.mb-5, .row.g-4, .row.text-center, .tab-content, .mb-4.text-danger').forEach(el => el.style.display = 'none');
 
     // Muestra la noticia completa
     const contenedor = document.getElementById('noticia-completa');
@@ -332,6 +485,6 @@ function mostrarNoticiaCompleta(id) {
     function cerrarNoticiaCompleta() {
       document.getElementById('noticia-completa').style.display = 'none';
       document.getElementById('noticia-completa').innerHTML = '';
-      document.querySelectorAll('.row.mb-4, .row.mb-5, .row.g-4, .row.text-center, .tab-content').forEach(el => el.style.display = '');
+      document.querySelectorAll('.row.mb-4, .row.mb-5, .row.g-4, .row.text-center, .tab-content, .mb-4.text-danger').forEach(el => el.style.display = '');
     }
 

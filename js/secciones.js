@@ -22,7 +22,6 @@
     window.addEventListener('DOMContentLoaded', activarSeccionPorHash);
     window.addEventListener('hashchange', activarSeccionPorHash);
 
-    // Opcional: activar nav-link activo
     function activarNavLink(id) {
       document.querySelectorAll('.navbar-nav .nav-link').forEach(link => link.classList.remove('active', 'fw-bold'));
       const nav = document.getElementById('nav-' + id);
@@ -30,7 +29,6 @@
         nav.classList.add('active', 'fw-bold');
       }
     }
-    // Llama a activarNavLink cuando cambie la sección
     function mostrarSeccion(id) {
       document.querySelectorAll('.seccion-pagina').forEach(sec => sec.classList.remove('active'));
       const seccion = document.getElementById(id);
@@ -41,8 +39,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
-
-    // GOOGLE TRANSLATE
     (function() {
       var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
       s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
@@ -194,7 +190,6 @@
       if (userDataStr) {
         const userData = JSON.parse(userDataStr);
         if (userData.password === password) {
-          // Guardar sesión en localStorage o sessionStorage
           if (remember) {
             localStorage.setItem('currentUser', email);
           } else {

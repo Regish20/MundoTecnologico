@@ -119,7 +119,6 @@
   </div>
 </nav>
 
-  <!-- Resto del código HTML del sitio aquí -->
 
   <!-- Modal de Registro -->
   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
@@ -207,7 +206,6 @@
               alt="Tecnología del futuro"
               style="height: 500px; object-fit: cover;">
           </div>
-          <!-- Gradiente encima pero sin tapar la imagen -->
           <div class="position-absolute top-0 start-0 w-100 h-100 rounded-3" style="background: linear-gradient(135deg, rgba(217,46,64,0.7) 0%, rgba(0,0,0,0.5) 100%); z-index:3;"></div>
           <!-- Texto y botones -->
           <div class="position-absolute top-50 start-50 translate-middle text-center text-white w-100 px-4" style="z-index:4;">
@@ -237,7 +235,6 @@
     </div>
 
     
-    <!-- Agrega este contenedor después del banner principal y antes de las noticias -->
     <div id="noticia-completa" style="display:none;"></div>
 
     <!-- Noticias principales -->
@@ -246,7 +243,7 @@
         <div class="card mb-4 shadow-sm border-0 rounded-4">
           <div class="row g-0">
             <div class="col-md-5">
-              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded-start h-100 object-fit-cover" alt="Noticia de tecnología">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" class="img-fluid rounded-start h-100 object-fit-cover" alt="Noticia de tecnología" onclick="mostrarNoticiaCompleta(1)">
             </div>
             <div class="col-md-7">
               <div class="card-body">
@@ -264,11 +261,6 @@
                   La evolución de Next.js y otros frameworks modernos está redefiniendo el desarrollo web. Expertos analizan cómo la integración de IA en herramientas de programación y el auge de arquitecturas serverless están transformando la industria y creando nuevas oportunidades laborales.
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="small text-muted">
-                    <i class="far fa-clock me-1"></i> Hace 3 horas
-                    <span class="mx-2">|</span>
-                    <i class="far fa-comment me-1"></i> 42 comentarios
-                  </div>
                   <a href="#" class="btn btn-sm btn-outline-danger" onclick="mostrarNoticiaCompleta(1)">Leer más</a>
                 </div>
               </div>
@@ -279,43 +271,36 @@
         <div class="row mb-4">
           <div class="col-md-6 mb-4 mb-md-0">
             <div class="card h-100 shadow-sm border-0">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Innovación tecnológica">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Innovación tecnológica" onclick="mostrarNoticiaCompleta(2)">
               <div class="card-body">
                 <div class="mb-2">
                   <span class="badge bg-info rounded-pill">Innovación</span>
                   <span class="badge bg-secondary rounded-pill">Tecnología</span>
                 </div>
-                <!-- Segunda noticia -->
                 <h5 class="card-title">
                   <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(2)">
                     Startups tecnológicas revolucionan la industria con IA y automatización
                   </a>
                 </h5>
                 <p class="card-text">Nuevas empresas están implementando inteligencia artificial y robótica para transformar sectores como la salud, la educación y la energía.</p>
-                <div class="small text-muted">
-                  <i class="far fa-clock me-1"></i> Hace 12 horas
-                </div>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="card h-100 shadow-sm border-0">
-              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Programación Java">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Programación Java" onclick="mostrarNoticiaCompleta(3)">
               <div class="card-body">
                 <div class="mb-2">
                   <span class="badge bg-success rounded-pill">Programación</span>
                   <span class="badge bg-secondary rounded-pill">Java</span>
                 </div>
-                <!-- Tercera noticia -->
                 <h5 class="card-title">
                   <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(3)">
                     Java comienza un nuevo camino en la programación: 3 datos clave
                   </a>
                 </h5>
                 <p class="card-text">Las últimas actualizaciones prometen revolucionar el desarrollo de aplicaciones empresariales.</p>
-                <div class="small text-muted">
-                  <i class="far fa-clock me-1"></i> Hace 3 días
-                </div>
+
               </div>
             </div>
           </div>
@@ -335,8 +320,8 @@
                 <div class="d-flex">
                   <div class="fw-bold text-danger me-2">01</div>
                   <div>
-                    <h6 class="mb-0">El futuro de los microprocesadores: más pequeños y más potentes</h6>
-                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 5 horas</small>
+                    <h6 class="mb-0">El futuro de los procesadores cuánticos</h6>
+
                   </div>
                 </div>
               </a>
@@ -345,7 +330,7 @@
                   <div class="fw-bold text-danger me-2">02</div>
                   <div>
                     <h6 class="mb-0">Cómo configurar tu entorno de desarrollo para Python en 2025</h6>
-                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 1 día</small>
+
                   </div>
                 </div>
               </a>
@@ -354,16 +339,16 @@
                   <div class="fw-bold text-danger me-2">03</div>
                   <div>
                     <h6 class="mb-0">Java lanza nuevas herramientas para desarrolladores</h6>
-                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 2 días</small>
+
                   </div>
                 </div>
               </a>
               <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-0" onclick="mostrarNoticiaCompleta(8)">
                 <div class="d-flex">
-                  <div class="fw-bold text-danger me-2">05</div>
+                  <div class="fw-bold text-danger me-2">04</div>
                   <div>
                     <h6 class="mb-0">Conferencia Tech 2025: Las tendencias del momento</h6>
-                    <small class="text-muted"><i class="far fa-clock me-1"></i> Hace 3 días</small>
+
                   </div>
                 </div>
               </a>
@@ -409,12 +394,13 @@
           </li>
         </ul>
         <div class="tab-content" id="categoryTabsContent">
+
           <!-- Pestaña Tecnología -->
           <div class="tab-pane fade show active" id="tech" role="tabpanel" aria-labelledby="tech-tab">
             <div class="row g-4">
               <div class="col-md-3 col-sm-6">
                 <div class="card h-100 shadow-sm border-0">
-                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Procesadores cuánticos">
+                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Procesadores cuánticos" onclick="mostrarNoticiaCompleta(4)">
                   <div class="card-body">
                     <span class="badge bg-primary mb-2">Hardware</span>
                     <h5 class="card-title">
@@ -424,14 +410,11 @@
                     </h5>
                     <p class="card-text small">Avances en la miniaturización y enfriamiento permitirán su uso doméstico.</p>
                   </div>
-                  <div class="card-footer bg-white border-0 small text-muted">
-                    <i class="far fa-clock me-1"></i> Hace 1 semana
-                  </div>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
                 <div class="card h-100 shadow-sm border-0">
-                  <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Ciberseguridad">
+                  <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Ciberseguridad" onclick="mostrarNoticiaCompleta(5)">
                   <div class="card-body">
                     <span class="badge bg-warning text-dark mb-2">Ciberseguridad</span>
                     <h5 class="card-title">
@@ -441,54 +424,30 @@
                     </h5>
                     <p class="card-text small">La combinación de reconocimiento facial y de voz está revolucionando la seguridad.</p>
                   </div>
-                  <div class="card-footer bg-white border-0 small text-muted">
-                    <i class="far fa-clock me-1"></i> Hace 3 días
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="card h-100 shadow-sm border-0">
-                  <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Realidad Virtual">
-                  <div class="card-body">
-                    <span class="badge bg-info text-dark mb-2">Trabajo en casa</span>
-                      <h5 class="card-title">
-                        <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(7)">
-                          La IA multimodal: el futuro de la inteligencia artificial
-                        </a>
-                      </h5>
-                      <p class="card-text small">Herramientas digitales y nuevas tendencias están permitiendo a millones de personas trabajar eficientemente desde sus hogares.</p>
-                  </div>
-                  <div class="card-footer bg-white border-0 small text-muted">
-                    <i class="far fa-clock me-1"></i> Hace 1 semana
-                  </div>
                 </div>
               </div>
             </div>
           </div>
           
-          <!-- Otras pestañas - contenido oculto por defecto -->
           <div class="tab-pane fade" id="prog" role="tabpanel" aria-labelledby="prog-tab">
             <div class="row g-4">
               <div class="col-md-3 col-sm-6">
                 <div class="card h-100 shadow-sm border-0">
-                  <img src="https://images.unsplash.com/photo-1517650862521-d580d5348145?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" class="card-img-top" alt="Java">
+                  <img src="https://images.unsplash.com/photo-1517650862521-d580d5348145?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA" class="card-img-top" alt="Java" onclick="mostrarNoticiaCompleta(14)">
                   <div class="card-body">
                     <span class="badge bg-danger mb-2">Java</span>
                     <h5 class="card-title">
-                      <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(3)">
+                      <a href="#" class="text-decoration-none text-dark" onclick="mostrarNoticiaCompleta(14)">
                         La evolución de Java: del JDK 8 al JDK 28
                       </a>
                     </h5>
                     <p class="card-text small">Cómo ha evolucionado uno de los lenguajes más populares en los últimos años.</p>
                   </div>
-                  <div class="card-footer bg-white border-0 small text-muted">
-                    <i class="far fa-clock me-1"></i> Hace 2 días
-                  </div>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
                 <div class="card h-100 shadow-sm border-0">
-                  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Entorno Python moderno">
+                  <img src="https://images.unsplash.com/photo-1649180556628-9ba704115795?q=80&w=1162&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Entorno Python moderno" onclick="mostrarNoticiaCompleta(6)">
                   <div class="card-body">
                     <span class="badge bg-success mb-2">Programación</span>
                     <h5 class="card-title">
@@ -500,9 +459,6 @@
                       Descubre cómo instalar Python, usar entornos virtuales, configurar Visual Studio Code y automatizar pruebas para trabajar como un profesional.
                     </p>
                   </div>
-                  <div class="card-footer bg-white border-0 small text-muted">
-                    <i class="far fa-clock me-1"></i> Hace 5 días
-                  </div>
                 </div>
               </div>
             </div>
@@ -512,7 +468,7 @@
             <div class="row g-4">
               <div class="col-md-3 col-sm-6">
                 <div class="card h-100 shadow-sm border-0">
-                  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="IA Generativa">
+                  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="IA Generativa" onclick="mostrarNoticiaCompleta(7)">
                   <div class="card-body">
                     <span class="badge bg-primary mb-2">IA Generativa</span>
                     <h5 class="card-title">
@@ -524,7 +480,6 @@
                   </div>
                 </div>
               </div>
-              <!-- Más elementos aquí para la pestaña de IA -->
             </div>
           </div>
           
@@ -590,5 +545,6 @@
 <script src="js/traduccion.js"></script>
 <script src="js/busqueda.js"></script>
 <script src="js/Index.js"></script>
+<script src="js/mostrarNoticia.js"></script>
 </body>
 </html>

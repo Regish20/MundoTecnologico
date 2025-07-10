@@ -189,3 +189,12 @@
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return date.toLocaleDateString('es-ES', options);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+      const dias = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+      const hoy = new Date();
+      const fechaFormateada = `${dias[hoy.getDay()]}, ${hoy.getDate()} de ${meses[hoy.getMonth()]} de ${hoy.getFullYear()}`;
+      const fechaElemento = document.getElementById('current-date');
+      if (fechaElemento) fechaElemento.textContent = fechaFormateada;
+    });
